@@ -32,7 +32,9 @@ window.exampleVideoData = [{
     },
     channelTitle: 'thenewboston',
     liveBroadcastContent: 'none'
-  }
+  },
+  statistics: {viewCount: 9001},
+  contentDetails: {duration: 'PT15M5S'}
 }, {
   kind: 'youtube#searchResult',
   etag: 'abQHWywil_AkNqdqji7_FqiK-u4/tS3xe6KXEJbntCAmn01SmEuSYxg',
@@ -64,7 +66,9 @@ window.exampleVideoData = [{
     },
     channelTitle: '',
     liveBroadcastContent: 'none'
-  }
+  },
+  statistics: {viewCount: 9001},
+  contentDetails: {duration: 'PT15M5S'}
 }, {
   kind: 'youtube#searchResult',
   etag: 'abQHWywil_AkNqdqji7_FqiK-u4/FZYrgJg7qfkv0yfImJPujBKBmLk',
@@ -96,7 +100,9 @@ window.exampleVideoData = [{
     },
     channelTitle: '',
     liveBroadcastContent: 'none'
-  }
+  },
+  statistics: {viewCount: 9001},
+  contentDetails: {duration: 'PT15M5S'}
 }, {
   kind: 'youtube#searchResult',
   etag: 'abQHWywil_AkNqdqji7_FqiK-u4/nSaavPWVkTWpn2p-ClwNj7xszf8',
@@ -128,7 +134,9 @@ window.exampleVideoData = [{
     },
     channelTitle: 'bengrunfeld',
     liveBroadcastContent: 'none'
-  }
+  },
+  statistics: {viewCount: 9001},
+  contentDetails: {duration: 'PT15M5S'}
 }, {
   kind: 'youtube#searchResult',
   etag: 'abQHWywil_AkNqdqji7_FqiK-u4/3E7u1VZ18KYyfLIA6RgI2w-7nRI',
@@ -160,5 +168,7 @@ window.exampleVideoData = [{
     },
     channelTitle: '',
     liveBroadcastContent: 'none'
-  }
+  },
+  statistics: {viewCount: 9001},
+  contentDetails: {duration: 'PT15M5S'}
 }];

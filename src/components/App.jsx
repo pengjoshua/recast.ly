@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   callback(allVideos) {
-    this.setState({allVideos: allVideos.responseJSON.items});
+    console.log('allVideos', allVideos);
+    this.setState({allVideos: allVideos});
   }
 
   searchVids(searchQuery) {
