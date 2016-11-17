@@ -7,7 +7,7 @@ class App extends React.Component {
       currentVideoIndex: 0 
     };
     window.searchYouTube({key: window.YOUTUBE_API_KEY,
-                          query: 'cats',
+                          query: 'react',
                           max: 5
                          },
       this.callback.bind(this)  
