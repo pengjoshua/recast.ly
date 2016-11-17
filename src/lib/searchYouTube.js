@@ -6,7 +6,7 @@ var searchYouTube = (options, callback) => {
     data: _.extend({part: 'snippet',
                      key: window.YOUTUBE_API_KEY,
                        q: options.query, 
-              maxResults: '5',
+              maxResults: options.max,
          videoEmbeddable: 'true',
                     type: 'video'
     }),

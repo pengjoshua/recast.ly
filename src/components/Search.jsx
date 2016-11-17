@@ -1,7 +1,19 @@
 var Search = (props) => (
   <div className="search-bar form-inline">
-    <input className="form-control" type="text" onChange={function() { props.submitSearch($('.form-control').val()); }} />
-    <button className="btn hidden-sm-down" onClick={function() { props.submitSearch($('.form-control').val()); }} >
+    <input className="form-control" type="text" onKeyPress={ function(event) {
+      // console.log('on submit triggered', event.key); 
+      if (event.key === 'Enter') {
+        $('.form-control').val('');
+      }
+    }}
+      onChange={function() { 
+        props.submitSearch($('.form-control').val()); 
+      }} />
+    <button className="btn hidden-sm-down" onClick={ 
+      function() { 
+        props.submitSearch($('.form-control').val()); 
+        $('.form-control').val(''); 
+      }} >
       <span className="glyphicon glyphicon-search" ></span>
     </button>
   </div> 

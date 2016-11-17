@@ -3,19 +3,19 @@ class App extends React.Component {
     super(props);
     this.state = {
       allVideos: this.props.searchYouTube,
-      currentVideoIndex: 0 
+      currentVideo: this.props.searchYouTube[0] 
     };
-    window.searchYouTube({key: window.YOUTUBE_API_KEY,
-                          query: 'react',
-                          max: 5
-                         },
-      this.callback.bind(this)  
-    );
+    // window.searchYouTube({key: window.YOUTUBE_API_KEY,
+    //                       query: 'react tutorial',
+    //                       max: 7
+    //                      },
+    //   this.callback.bind(this)  
+    // );
   }
 
-  changeCurrentVideo(index) {
+  changeCurrentVideo(video) {
     this.setState({
-      currentVideoIndex: index
+      currentVideo: video
     });
   }
 
@@ -27,7 +27,7 @@ class App extends React.Component {
     // console.log('debounce');
     window.searchYouTube({key: window.YOUTUBE_API_KEY,
                           query: searchQuery,
-                          max: 5
+                          max: 7
                          },
       this.callback.bind(this)  
     );
@@ -38,7 +38,7 @@ class App extends React.Component {
       <div>
         <Nav submitSearch={_.debounce(this.searchVids.bind(this), 500)} />
         <div className="col-md-7">
-          <VideoPlayer video={this.state.allVideos[this.state.currentVideoIndex]} />
+          <VideoPlayer video={this.state.currentVideo} />
         </div>
         <div className="col-md-5">
           <VideoList updateVideoPlayer={this.changeCurrentVideo.bind(this)} videos={this.state.allVideos} />
