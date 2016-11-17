@@ -3,6 +3,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      allVideos: window.exampleVideoData,
       currentVideoIndex: 0 
     };
   }
@@ -23,10 +24,10 @@ class App extends React.Component {
       <div>
         <Nav />
         <div className="col-md-7">
-          <VideoPlayer video={this.props.searchYouTube[this.state.currentVideoIndex]} />
+          <VideoPlayer video={this.state.allVideos[this.state.currentVideoIndex]} />
         </div>
         <div className="col-md-5">
-          <VideoList updateVideoPlayer={this.changeCurrentVideo.bind(this)} videos={this.props.searchYouTube} />
+          <VideoList updateVideoPlayer={this.changeCurrentVideo.bind(this)} videos={this.state.allVideos} />
         </div>
       </div>
     );
