@@ -1,9 +1,8 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log('WHAT THIS.PROPS IS', this.props.searchYouTube);
     this.state = {
-      allVideos: window.exampleVideoData,
+      allVideos: this.props.searchYouTube,
       currentVideoIndex: 0 
     };
     window.searchYouTube({key: window.YOUTUBE_API_KEY,
@@ -14,34 +13,18 @@ class App extends React.Component {
     );
   }
 
-  getNewVideos() {
-    window.searchYouTube({key: window.YOUTUBE_API_KEY,
-                          query: 'react',
-                          max: 5
-                         },
-      this.callback.bind(this)  
-    ).bind(this);
-  }
-
   changeCurrentVideo(index) {
-    console.log('function triggered with', index);
-    if (typeof index === 'number') {
-      this.setState({
-        currentVideoIndex: index
-      });
-    } else {
-      console.log('INDEX NOT A NUMBER');
-    }
+    this.setState({
+      currentVideoIndex: index
+    });
   }
 
   callback(allVideos) {
-    console.log('allvids', allVideos.responseJSON.items);
     this.setState({allVideos: allVideos.responseJSON.items});
-    console.log(this.state.allVideos);
   }
 
   searchVids(searchQuery) {
-    console.log('searching', searchQuery);
+    // console.log('debounce');
     window.searchYouTube({key: window.YOUTUBE_API_KEY,
                           query: searchQuery,
                           max: 5
@@ -53,7 +36,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav submitSearch={this.searchVids.bind(this)} />
+        <Nav submitSearch={_.debounce(this.searchVids.bind(this), 500)} />
         <div className="col-md-7">
           <VideoPlayer video={this.state.allVideos[this.state.currentVideoIndex]} />
         </div>

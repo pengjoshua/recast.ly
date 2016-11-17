@@ -15,5 +15,5 @@
 //   }
 
 ReactDOM.render(
-  <App />,
+  <App searchYouTube={window.exampleVideoData}/>,
   document.getElementById('app'));
