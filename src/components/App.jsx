@@ -12,7 +12,15 @@ class App extends React.Component {
                          },
       this.callback.bind(this)  
     );
+  }
 
+  getNewVideos() {
+    window.searchYouTube({key: window.YOUTUBE_API_KEY,
+                          query: 'react',
+                          max: 5
+                         },
+      this.callback.bind(this)  
+    ).bind(this);
   }
 
   changeCurrentVideo(index) {
@@ -32,10 +40,20 @@ class App extends React.Component {
     console.log(this.state.allVideos);
   }
 
+  searchVids(searchQuery) {
+    console.log('searching', searchQuery);
+    window.searchYouTube({key: window.YOUTUBE_API_KEY,
+                          query: searchQuery,
+                          max: 5
+                         },
+      this.callback.bind(this)  
+    );
+  }
+
   render() {
     return (
       <div>
-        <Nav />
+        <Search submitSearch={this.searchVids.bind(this)} />
         <div className="col-md-7">
           <VideoPlayer video={this.state.allVideos[this.state.currentVideoIndex]} />
         </div>
