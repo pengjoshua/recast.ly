@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Search submitSearch={this.searchVids.bind(this)} />
+        <Nav submitSearch={this.searchVids.bind(this)} />
         <div className="col-md-7">
           <VideoPlayer video={this.state.allVideos[this.state.currentVideoIndex]} />
         </div>
