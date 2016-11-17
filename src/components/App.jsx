@@ -1,11 +1,18 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    // console.log('WHAT THIS.PROPS IS', this.props.searchYouTube);
     this.state = {
       allVideos: window.exampleVideoData,
       currentVideoIndex: 0 
     };
+    window.searchYouTube({key: window.YOUTUBE_API_KEY,
+                          query: 'cats',
+                          max: 5
+                         },
+      this.callback.bind(this)  
+    );
+
   }
 
   changeCurrentVideo(index) {
@@ -17,6 +24,12 @@ class App extends React.Component {
     } else {
       console.log('INDEX NOT A NUMBER');
     }
+  }
+
+  callback(allVideos) {
+    console.log('allvids', allVideos.responseJSON.items);
+    this.setState({allVideos: allVideos.responseJSON.items});
+    console.log(this.state.allVideos);
   }
 
   render() {
