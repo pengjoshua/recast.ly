@@ -3,7 +3,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       allVideos: this.props.searchYouTube,
-      currentVideo: this.props.searchYouTube[0] 
+      currentVideo: this.props.searchYouTube[0],
+      autoplay: '?autoplay=0' 
     };
     // window.searchYouTube({key: window.YOUTUBE_API_KEY,
     //                       query: 'react tutorial',
@@ -34,15 +35,28 @@ class App extends React.Component {
     );
   }
 
+  changeAutoPlayStatus() {
+    console.log('toggle autoplay status');
+    if (this.state.autoplay === '?autoplay=0') {
+      this.setState({
+        autoplay: '?autoplay=1'
+      });
+    } else {
+      this.setState({
+        autoplay: '?autoplay=0'
+      });
+    }
+  }
+
   render() {
     return (
       <div>
         <Nav submitSearch={_.debounce(this.searchVids.bind(this), 500)} />
         <div className="col-md-7">
-          <VideoPlayer video={this.state.currentVideo} />
+          <VideoPlayer autoPlayStatus={this.state.autoplay} video={this.state.currentVideo} />
         </div>
         <div className="col-md-5">
-          <VideoList updateVideoPlayer={this.changeCurrentVideo.bind(this)} videos={this.state.allVideos} />
+          <VideoList changeAutoPlay={this.changeAutoPlayStatus.bind(this)} updateVideoPlayer={this.changeCurrentVideo.bind(this)} videos={this.state.allVideos} />
         </div>
       </div>
     );

@@ -39,7 +39,7 @@ class VideoListEntry extends React.Component {
   }
 
   onMouseIn() {
-    console.log('hovering!');
+    // console.log('hovering!');
     // event.stopPropagation();
     this.setState({
       hover: true
@@ -47,7 +47,7 @@ class VideoListEntry extends React.Component {
   }
 
   onMouseOut() {
-    console.log('not hovering!');
+    // console.log('not hovering!');
     this.setState({
       hover: false
     });
