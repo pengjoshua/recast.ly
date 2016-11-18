@@ -65,7 +65,8 @@ class VideoListEntry extends React.Component {
     };
 
     return (
-      <div style={titleStyle} className="video-list-entry" onMouseEnter={ this.onMouseIn.bind(this) } onMouseLeave={ this.onMouseOut.bind(this) } onClick={ () => { this.props.updateVideoPlayer(this.props.video); } } >
+      <div style={titleStyle} className="video-list-entry" onMouseEnter={ this.onMouseIn.bind(this) } 
+      onMouseLeave={ this.onMouseOut.bind(this) } onClick={ () => { this.props.updateVideoPlayer(this.props.video); } } >
         <div className="media-left media-middle">
           <img className="media-object" src={this.props.video.snippet.thumbnails.default.url} alt="" />
         </div>
