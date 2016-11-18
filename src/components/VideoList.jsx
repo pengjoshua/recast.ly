@@ -1,5 +1,6 @@
 var VideoList = (props) => (
   <div className="video-list media">
+    <div>Search Results</div>
     {props.videos.map((video, i) =>
       <VideoListEntry updateVideoPlayer={props.updateVideoPlayer} position={{index: i}} video={video} />
     )}
