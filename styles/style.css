@@ -61,12 +61,13 @@ body {
   font-weight: bold;
 }
 
-.video-list-entry-title:hover {
-  color: #e62117;
-  cursor: pointer;
-}
-
 .video-list-entry-detail {
+  padding-top: 10px;
   font-size: 12px;
   color: #999;
+}
+
+.hoverClass {
+  color: white;
+  background-color: #e62117;
 }
