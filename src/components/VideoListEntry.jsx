@@ -1,5 +1,18 @@
 // var ytDurationFormat = require('youtube-duration-format');
 // import as ytDurationFormat from 'youtube-duration-format';
+//got from stack over flow... just styling
+var parseDuration = function(e) { 
+  var n = e.replace(/D|H|M/g, ':').replace(/P|T|S/g, '').split(':'); 
+  if (1 === n.length) {
+    2 !== n[0].length && (n[0] = '0' + n[0]), n[0] = '0:' + n[0];
+  } else {
+    for (var r = 1, l = n.length - 1; l >= r; r++) {
+      2 !== n[r].length && (n[r] = '0' + n[r]);
+    }
+    return n.join(':');
+  }
+};
+
 
 var VideoListEntry = (props) => (
  
@@ -11,7 +24,7 @@ var VideoListEntry = (props) => (
       <div onClick={ () => { props.updateVideoPlayer(props.video); } } className="video-list-entry-title">{props.video.snippet.title}</div>
       {/*<div className="video-list-entry-detail">{props.video.snippet.description}</div>*/}
       <div className="video-list-entry-detail">{props.video.statistics.viewCount + ' views'
-      + ' - ' + props.video.contentDetails.duration.slice(2)}</div>
+      + ' - ' + parseDuration(props.video.contentDetails.duration)}</div>
     </div>
   </div>
 
